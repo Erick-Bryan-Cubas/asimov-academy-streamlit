@@ -10,7 +10,7 @@ st.set_page_config(
 )
 
 st.title('Análise de Dados Spotify')
-base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..'))
 file_path = os.path.join(base_dir, 'src', 'data', 'raw', 'spotify.csv')
 
 #st.write(f"Caminho absoluto do arquivo: {file_path}")
@@ -27,19 +27,20 @@ if os.path.exists(file_path):
     # Controlador de seleção dos albuns
     albums = df[df['Artist'] == artist]['Album'].value_counts().index
     album = st.sidebar.selectbox('Album', albums)
+    df_filtered_album = df[df['Album'] == album]
 
-    # Botão de filtro
-    if st.sidebar.button("Filtrar"):
-        df_filtered = df[df['Artist'] == artist]
-        df_filtered_album = df_filtered[df_filtered['Album'] == album]
+    # Controlador de exibição dos dados
+    #display = st.checkbox("Mostrar dados em gráfico")
+    #if display:
+    #    st.bar_chart(df_filtered_album['Stream'])
+    #else:
+    #    st.write(df_filtered_album)
 
-        col1, col2 = st.columns([0.7, 0.3])
-        col1.bar_chart(df_filtered_album['Stream'])
-        col1.line_chart(df_filtered_album['Danceability'])
+    col1, col2 = st.columns([0.7, 0.3])
+    col1.bar_chart(df_filtered_album['Stream'])
+    col1.line_chart(df_filtered_album['Danceability'])
 
-        st.write(artist)
-    else:
-        st.write("⚠️ Clique no botão para filtrar")
+    st.write(artist)
 
 else:
     st.error(f"Arquivo não encontrado: {file_path}")
