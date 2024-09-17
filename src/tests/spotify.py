@@ -4,6 +4,11 @@ import os
 import streamlit as st
 import pandas as pd
 
+st.set_page_config(
+    page_title="Spotify Data Analysis",
+    layout="wide"
+)
+
 st.title('Análise de Dados Spotify')
 base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 file_path = os.path.join(base_dir, 'src', 'data', 'raw', 'spotify.csv')
@@ -12,8 +17,12 @@ file_path = os.path.join(base_dir, 'src', 'data', 'raw', 'spotify.csv')
 
 if os.path.exists(file_path):
     df = pd.read_csv(file_path)
-    df.set_index("Artist", inplace=True)
+    df.set_index("Track", inplace=True)
     #st.write(df)
-    st.line_chart(df[df['Stream'] > 1000000000]['Stream'])
+    # Controlador de seleção dos artista
+    artists = df['Artist'].value_counts().index
+    artist = st.selectbox("Artista", artists)
+    df_filtered = df[df['Artist'] == artist]    
+    st.bar_chart(df_filtered['Stream'])
 else:
     st.error(f"Arquivo não encontrado: {file_path}")
