@@ -1,41 +1,22 @@
-# Criando Aplicativos Web com Streamlit
 
-## Descrição do Curso
 
-Construa aplicativos web num piscar de olhos com **Streamlit**!
+# Criando Aplicativos Web com <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/streamlit/streamlit-plain-wordmark.svg" alt="Streamlit Logo" style="width:50px; margin-right:10px; display:inline-block; vertical-align:middle;"/>
 
-Streamlit é uma biblioteca que permite o desenvolvimento de dashboards bonitos e responsivos com apenas algumas linhas de código em Python. Neste curso, você aprenderá a criar seu primeiro dashboard com Streamlit em poucas horas.
+## Descrição
 
-Você será guiado desde o básico até técnicas avançadas, como:
+Este repositório contém códigos de aplicativos web criados com a biblioteca Streamlit. Os aplicativos são voltados para análise de dados e visualização de informações. Este repositório é um projeto em andamento e os projetos inicias foram criados com base no curso [Criando Aplicativos Web com Streamlit](https://hub.asimov.academy/curso/criando-aplicativos-web-com-streamlit/).
 
-- Uso de widgets;
-- Criação de layouts personalizados;
-- Implementação de múltiplas páginas;
-- Componentes adicionais.
+## Aplicativos
 
-Além disso, você vai descobrir como otimizar o desempenho de seus aplicativos com técnicas de cacheamento, garantindo que eles rodem de maneira suave — e tudo isso sem a necessidade de ferramentas complexas.
+Aplicativos disponíveis:
 
-### Projetos Incluídos
+- [Aplicativo Teste Spotify](src\tests\spotify_app\spotify.py)
+    - Dashboard com informações sobre músicas e artistas do Spotify. Para executar o aplicativo leia o arquivo [spotify.md](src\tests\spotify_app\spotify.md).
 
-- **Dashboard interativo com Streamlit**: Crie seu primeiro dashboard com Streamlit com dados do Spotify.
-- **Análise de Dados da FIFA com Streamlit**: Exiba sua análise de dados em um webapp Streamlit.
-- **Deploy com Streamlit Cloud**: Aprenda a colocar seu projeto em produção de maneira rápida e sem complicações.
+- [FIFA World Cup 2023](src\app\dash_fifa\1_🏠_home.py)
+    - Dashboard com informações sobre clubes e jogadores de futebol. Para executar o aplicativo leia o arquivo [dash_fifa.md](src\app\dash_fifa\dash_fifa.md).
+    - Acesse a aplicação na Web em: [FIFA World Cup 2023](https://asimov-academy-app.streamlit.app/)
 
-Comece agora e desenvolva aplicativos web incríveis e interativos de forma ágil e prática!
+## Base de Dados
 
-## O Que Você Vai Aprender
-
-- O que é a biblioteca **Streamlit**.
-- Como criar um dashboard com **Streamlit**.
-- Utilizar **widgets**, layouts e componentes.
-- Desenvolver **webapps multipáginas**.
-- Projeto: **Análise de Dados da FIFA com Streamlit**.
-- Realizar o **Deploy com Streamlit Cloud**.
-
-## Para Quem Este Curso é Recomendado
-
-- Iniciantes em Python que desejam construir dashboards e webapps.
-- Analistas de dados em busca de visualizações interativas na web.
-- Empreendedores que desejam prototipar aplicativos web rapidamente.
-- Freelancers buscando expandir suas habilidades e entregar dashboards com rapidez.
-- Profissionais de TI em busca de soluções ágeis para visualização de dados.
+Os arquivos de dados utilizados nos aplicativos foram dispostos em pastas específicas. A descrição dos dados e a fonte de origem estão disponíveis nos arquivos README.md de cada aplicativo.
