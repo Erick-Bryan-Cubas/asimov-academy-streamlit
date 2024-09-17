@@ -22,12 +22,12 @@ if os.path.exists(file_path):
 
     # Controlador de seleção dos artista
     artists = df['Artist'].value_counts().index
-    artist = st.selectbox("Artista", artists)
+    artist = st.sidebar.selectbox("Artista", artists)
     df_filtered = df[df['Artist'] == artist]
 
     # Controlador de seleção dos albuns
     albums = df_filtered['Album'].value_counts().index
-    album = st.selectbox('Album', albums)
+    album = st.sidebar.selectbox('Album', albums)
     df_filtered_album = df[df['Album'] == album]
 
     # Controlador de exibição dos dados
