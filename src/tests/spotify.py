@@ -25,11 +25,16 @@ if os.path.exists(file_path):
     artist = st.selectbox("Artista", artists)
     df_filtered = df[df['Artist'] == artist]
 
+    # Controlador de seleção dos albuns
+    albums = df_filtered['Album'].value_counts().index
+    album = st.selectbox('Album', albums)
+    df_filtered_album = df[df['Album'] == album]
+
     # Controlador de exibição dos dados
     display = st.checkbox("Mostrar dados em gráfico")
     if display:
-        st.bar_chart(df_filtered['Stream'])
+        st.bar_chart(df_filtered_album['Stream'])
     else:
-        st.write(df_filtered)
+        st.write(df_filtered_album)
 else:
     st.error(f"Arquivo não encontrado: {file_path}")
