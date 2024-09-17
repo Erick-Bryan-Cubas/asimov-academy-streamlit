@@ -17,6 +17,9 @@ file_path = os.path.join(base_dir, 'src', 'data', 'raw', 'spotify.csv')
 
 if os.path.exists(file_path):
     df = pd.read_csv(file_path)
+
+    # Persistindo os dados na sessão do browser
+    st.session_state['df_spotify'] = df
     df.set_index("Track", inplace=True)
     #st.write(df)
 
