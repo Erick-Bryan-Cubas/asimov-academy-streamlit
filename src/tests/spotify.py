@@ -31,10 +31,18 @@ if os.path.exists(file_path):
     df_filtered_album = df[df['Album'] == album]
 
     # Controlador de exibição dos dados
-    display = st.checkbox("Mostrar dados em gráfico")
-    if display:
-        st.bar_chart(df_filtered_album['Stream'])
-    else:
-        st.write(df_filtered_album)
+    #display = st.checkbox("Mostrar dados em gráfico")
+    #if display:
+    #    st.bar_chart(df_filtered_album['Stream'])
+    #else:
+    #    st.write(df_filtered_album)
+
+    col1, col2 = st.columns([0.7, 0.3])
+    col1.bar_chart(df_filtered_album['Stream'])
+    col1.line_chart(df_filtered_album['Danceability'])
+
+    st.write(artist)
+    st.sidebar.button("Filtrar")
+    
 else:
     st.error(f"Arquivo não encontrado: {file_path}")
