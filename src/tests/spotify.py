@@ -23,26 +23,23 @@ if os.path.exists(file_path):
     # Controlador de seleção dos artista
     artists = df['Artist'].value_counts().index
     artist = st.sidebar.selectbox("Artista", artists)
-    df_filtered = df[df['Artist'] == artist]
 
     # Controlador de seleção dos albuns
-    albums = df_filtered['Album'].value_counts().index
+    albums = df[df['Artist'] == artist]['Album'].value_counts().index
     album = st.sidebar.selectbox('Album', albums)
-    df_filtered_album = df[df['Album'] == album]
 
-    # Controlador de exibição dos dados
-    #display = st.checkbox("Mostrar dados em gráfico")
-    #if display:
-    #    st.bar_chart(df_filtered_album['Stream'])
-    #else:
-    #    st.write(df_filtered_album)
+    # Botão de filtro
+    if st.sidebar.button("Filtrar"):
+        df_filtered = df[df['Artist'] == artist]
+        df_filtered_album = df_filtered[df_filtered['Album'] == album]
 
-    col1, col2 = st.columns([0.7, 0.3])
-    col1.bar_chart(df_filtered_album['Stream'])
-    col1.line_chart(df_filtered_album['Danceability'])
+        col1, col2 = st.columns([0.7, 0.3])
+        col1.bar_chart(df_filtered_album['Stream'])
+        col1.line_chart(df_filtered_album['Danceability'])
 
-    st.write(artist)
-    st.sidebar.button("Filtrar")
-    
+        st.write(artist)
+    else:
+        st.write("⚠️ Clique no botão para filtrar")
+
 else:
     st.error(f"Arquivo não encontrado: {file_path}")
