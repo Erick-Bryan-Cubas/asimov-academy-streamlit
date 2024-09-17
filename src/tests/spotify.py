@@ -19,10 +19,17 @@ if os.path.exists(file_path):
     df = pd.read_csv(file_path)
     df.set_index("Track", inplace=True)
     #st.write(df)
+
     # Controlador de seleção dos artista
     artists = df['Artist'].value_counts().index
     artist = st.selectbox("Artista", artists)
-    df_filtered = df[df['Artist'] == artist]    
-    st.bar_chart(df_filtered['Stream'])
+    df_filtered = df[df['Artist'] == artist]
+
+    # Controlador de exibição dos dados
+    display = st.checkbox("Mostrar dados em gráfico")
+    if display:
+        st.bar_chart(df_filtered['Stream'])
+    else:
+        st.write(df_filtered)
 else:
     st.error(f"Arquivo não encontrado: {file_path}")
