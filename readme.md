@@ -17,6 +17,7 @@ Além disso, você vai descobrir como otimizar o desempenho de seus aplicativos 
 
 ### Projetos Incluídos
 
+- **Dashboard interativo com Streamlit**: Crie seu primeiro dashboard com Streamlit com dados do Spotify.
 - **Análise de Dados da FIFA com Streamlit**: Exiba sua análise de dados em um webapp Streamlit.
 - **Deploy com Streamlit Cloud**: Aprenda a colocar seu projeto em produção de maneira rápida e sem complicações.
 
